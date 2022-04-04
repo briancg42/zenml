@@ -136,6 +136,9 @@ class ZenS3(Filesystem):
             return [
                 _extract_basename(dict_)
                 for dict_ in ZenS3.fs.listdir(path=path)
+                # s3fs.listdir also returns the root directory, so we filter
+                # it out here
+                if _extract_basename(dict_)
             ]
         except FileNotFoundError as e:
             raise NotFoundError() from e

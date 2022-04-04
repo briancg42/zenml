@@ -292,12 +292,16 @@ def copy_dir(
         source_file_path = Path(source_file)
         destination_name = os.path.join(destination_dir, source_file_path.name)
         if is_dir(source_file):
+            if source_file_path == Path(destination_dir):
+                # if the destination is a subdirectory of the source, we skip
+                # copying it to avoid an infinite loop.
+                return
             copy_dir(source_file, destination_name, overwrite)
         else:
             create_dir_recursive_if_not_exists(
                 str(Path(destination_name).parent)
             )
-            copy(str(source_file_path), str(destination_name), overwrite)
+            copy(source_file, destination_name, overwrite)
 
 
 def move(source: str, destination: str, overwrite: bool = False) -> None:
