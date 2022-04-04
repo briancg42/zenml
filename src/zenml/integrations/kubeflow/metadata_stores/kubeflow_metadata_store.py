@@ -54,6 +54,11 @@ class KubeflowMetadataStore(MySQLMetadataStore):
         """The metadata store flavor."""
         return MetadataStoreFlavor.KUBEFLOW
 
+    @property
+    def upgrade_migration_enabled(self) -> bool:
+        """Return False to disable automatic database schema migration."""
+        return False
+
     def get_tfx_metadata_config(
         self,
     ) -> Union[
