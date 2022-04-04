@@ -25,7 +25,8 @@ class AWSIntegration(Integration):
     """Definition of AWS integration for ZenML."""
 
     NAME = AWS
-    REQUIREMENTS = ["s3fs==2022.2.0"]
+    # IMPORTANT: keep this in sync with the `sagemaker` integration
+    REQUIREMENTS = ["s3fs==2022.3.0", "boto3==1.21.21"]
 
     @classmethod
     def activate(cls) -> None:

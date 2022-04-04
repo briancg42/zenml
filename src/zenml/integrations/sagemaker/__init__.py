@@ -24,7 +24,8 @@ class SagemakerIntegration(Integration):
     """Definition of Sagemaker integration for ZenML."""
 
     NAME = SAGEMAKER
-    REQUIREMENTS = ["sagemaker==2.77.1"]
+    # IMPORTANT: keep this in sync with the `aws` integration
+    REQUIREMENTS = ["sagemaker==2.82.2", "boto3==1.21.21"]
 
     @classmethod
     def activate(cls) -> None:
