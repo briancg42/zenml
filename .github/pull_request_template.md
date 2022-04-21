@@ -4,6 +4,7 @@ I implemented/fixed _ to achieve _.
 ## Pre-requisites
 Please ensure you have done the following:
 - [ ] I have read the **CONTRIBUTING.md** document.
+- [ ] I have set `develop` as the base branch for this Pull Request.
 - [ ] If my change requires a change to docs, I have updated the documentation accordingly.
 - [ ] If I have added an integration, I have updated the [integrations](https://docs.zenml.io/features/integrations) table.
 - [ ] I have added tests to cover my changes.
